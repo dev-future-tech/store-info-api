@@ -9,7 +9,7 @@
     </parent>
     <groupId>org.ikeda.store</groupId>
     <artifactId>store-core-info-api</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>Store Core API</name>
     <description>Basic info on the Stores</description>
     <properties>
@@ -28,7 +28,7 @@
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
         <url>https://github.com/dev-future-tech/store-info-api.git</url>
-        <tag>0.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencies>
