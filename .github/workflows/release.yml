@@ -104,4 +104,4 @@ jobs:
         run: ./mvnw clean verify -DskipTests=true jib:dockerBuild
       - id: docker_push
         name: Push to DockerHub
-        run: docker push anthonyikeda/${{needs.build.outputs.artifactId}}:${{needs.build.outputs.artifactVersion}}
+        run: docker push anthonyikeda/store-info-api:${{needs.build.outputs.artifactVersion}}
