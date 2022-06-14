@@ -8,14 +8,30 @@
         <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>org.ikeda.store</groupId>
     <artifactId>store-core-info-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Store Core API</name>
     <description>Basic info on the Stores</description>
     <properties>
         <java.version>18</java.version>
+        <project.scm.id>github</project.scm.id>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub anthonyikeda Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/dev-future-tech/store-info-api</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <url>https://github.com/dev-future-tech/store-info-api.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -79,6 +95,14 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.8.0</version>
@@ -103,6 +127,11 @@
                         <version>42.3.3</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
