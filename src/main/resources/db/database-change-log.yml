@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - property:
+      dbms: postgresql
+      name: now
+      value: current_timestamp
+  - property:
+      dbms: postgresql
+      name: uuid_function
+      value: uuid_generate_v4()
+  - changeSet:
+      id: 1
+      author: aikeda
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            splitStatements: true
+            path: db/setup.sql
+            stripComments: true
+  - changeSet:
+      id: 2
+      author: aikeda
+      changes:
+        - createTable:
+            tableName: store
+            columns:
+              - column:
+                  name: store_id
+                  type: UUID
+                  defaultValueComputed: ${uuid_function}
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: store_name
+                  type: varchar(80)
+              - column:
+                  name: phone_no
+                  type: varchar(20)
+        - createTable:
+            tableName: store_schedule
+            columns:
+              - column:
+                  name: schedule_id
+                  type: UUID
+                  defaultValueComputed: ${uuid_function}
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: store_id
+                  type: UUID
+              - column:
+                  name: day_of_week
+                  type: varchar(25)
+              - column:
+                  name: hour_open_from
+                  type: integer
+              - column:
+                  name: minute_open_from
+                  type: integer
+              - column:
+                  name: hour_closed_from
+                  type: integer
+              - column:
+                  name: minute_closed_from
+                  type: integer
+        - addForeignKeyConstraint:
+            constraintName: FK_store_schedules
+            baseColumnNames: store_id
+            baseTableName: store_schedule
+            referencedColumnNames: store_id
+            referencedTableName: store
+  - changeSet:
+      id: 3
+      author: aikeda
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            splitStatements: true
+            path: db/insert_stores.sql
+            stripComments: true

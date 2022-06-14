@@ -1,0 +1,10 @@
+= Store Core API
+:author: Anthony Ikeda <anthony.ikeda@gmail.com>
+:version-label: 1.0.0
+
+== Overview
+
+Core API for determining core store information. This is a basic microservice that holds the keys for the stores.
+
+you can utilise the Location and Calendar APIs to get more information around the stores that are persisted here.
+
