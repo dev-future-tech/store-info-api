@@ -2,9 +2,7 @@ name: Release project to packages
 
 on:
   push:
-    branches: [ '**' ]
-    branches-ignore:
-      - 'main'
+    branches: [ main ]
 
 jobs:
   build:
