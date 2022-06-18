@@ -20,8 +20,8 @@ public class ScheduleRowExtractor implements RowCallbackHandler {
     public void processRow(ResultSet rs) throws SQLException {
         ScheduleDTO dto = new ScheduleDTO();
         dto.setScheduleId(rs.getObject("schedule_id", UUID.class));
-        String openTime = rs.getString("opening_hour");
-        String closeTime = rs.getString("closing_hour");
+        String openTime = rs.getString("opening_hour").trim();
+        String closeTime = rs.getString("closing_hour").trim();
         dto.setOpenTime(openTime);
         dto.setCloseTime(closeTime);
         dto.setDayOfWeek(rs.getString("day_of_week"));

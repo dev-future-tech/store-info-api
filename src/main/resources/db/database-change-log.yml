@@ -36,6 +36,18 @@ databaseChangeLog:
                   name: phone_no
                   type: varchar(20)
         - createTable:
+            tableName: store_hours
+            columns:
+              - column:
+                  name: hours_id
+                  type: UUID
+                  defaultValueComputed: ${uuid_function}
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: description
+                  type: varchar(250)
+        - createTable:
             tableName: store_schedule
             columns:
               - column:
@@ -45,7 +57,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: store_id
+                  name: hours_id
                   type: UUID
               - column:
                   name: day_of_week
@@ -64,10 +76,39 @@ databaseChangeLog:
                   type: integer
         - addForeignKeyConstraint:
             constraintName: FK_store_schedules
-            baseColumnNames: store_id
+            baseColumnNames: hours_id
             baseTableName: store_schedule
+            referencedColumnNames: hours_id
+            referencedTableName: store_hours
+        - createTable:
+            tableName: store_hours_mapping
+            columns:
+              - column:
+                  name: store_id
+                  type: UUID
+              - column:
+                  name: hours_id
+                  type: UUID
+        - addForeignKeyConstraint:
+            constraintName: FK_store_hours
+            baseColumnNames: hours_id
+            baseTableName: store_schedule
+            referencedColumnNames: hours_id
+            referencedTableName: store_hours
+        - addForeignKeyConstraint:
+            constraintName: FK_hours_hours
+            baseColumnNames: hours_id
+            baseTableName: store_hours_mapping
+            referencedColumnNames: hours_id
+            referencedTableName: store_hours
+        - addForeignKeyConstraint:
+            constraintName: FK_hours_store
+            baseColumnNames: store_id
+            baseTableName: store_hours_mapping
             referencedColumnNames: store_id
             referencedTableName: store
+
+
   - changeSet:
       id: 3
       author: aikeda

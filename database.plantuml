@@ -1,0 +1,32 @@
+@startuml
+
+entity store {
+    store_id : UUID <<generated>>
+    store_name : varchar(150)
+    phone_no : varchar(15)
+}
+
+entity store_hours_mapping {
+    store_id : UUID <<FK>>
+    hours_id : UUID <<FK>>
+}
+
+entity store_hours {
+    hours_id : UUID <<generated>> <<PK>>,
+    description : varchar(30)
+}
+
+entity store_schedule {
+    schedule_id : UUID <<generated>> <<PK>>
+    hours_id : UUID <<FK>>
+    day_of_week : varchar(15)
+    hour_open_from : numeric
+    minute_open_from : numeric
+    hour_closed_from : numeric
+    minute_closed_from : numeric
+}
+
+store ||..|| store_hours_mapping
+store_hours_mapping ||..|| store_hours
+store_hours ||..|| store_schedule
+@enduml
