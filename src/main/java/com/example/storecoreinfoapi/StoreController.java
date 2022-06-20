@@ -5,10 +5,7 @@ import com.example.storecoreinfoapi.dto.StoreDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,6 +19,13 @@ public class StoreController {
 
     @Resource
     StoreService service;
+
+    @GetMapping()
+    public ResponseEntity<List<StoreDTO>> getStores(@RequestParam(value = "size", defaultValue = "10") int size,
+                                                    @RequestParam(value = "page", defaultValue = "0") int page) {
+        List<StoreDTO> results = this.service.getStores(size, page);
+        return ResponseEntity.ok(results);
+    }
 
     @GetMapping("/{store_id}")
     public ResponseEntity<StoreDTO> findByStoreId(@PathVariable("store_id") String storeId) {

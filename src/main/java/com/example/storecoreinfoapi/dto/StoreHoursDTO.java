@@ -4,17 +4,17 @@ import java.util.UUID;
 
 public class StoreHoursDTO {
 
-    private UUID scheduleId;
+    private UUID hoursId;
     private UUID storeId;
     private ScheduleDTO[] schedule;
     private ScheduleDTO[] scheduleOverride;
 
-    public UUID getScheduleId() {
-        return scheduleId;
+    public UUID getHoursId() {
+        return hoursId;
     }
 
-    public void setScheduleId(UUID scheduleId) {
-        this.scheduleId = scheduleId;
+    public void setHoursId(UUID hoursId) {
+        this.hoursId = hoursId;
     }
 
     public UUID getStoreId() {

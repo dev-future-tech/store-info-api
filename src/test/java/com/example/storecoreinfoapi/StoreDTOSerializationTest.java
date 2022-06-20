@@ -27,7 +27,7 @@ public class StoreDTOSerializationTest {
 
         StoreHoursDTO regularHours = new StoreHoursDTO();
         regularHours.setStoreId(store.getStoreId());
-        regularHours.setScheduleId(UUID.randomUUID());
+        regularHours.setHoursId(UUID.randomUUID());
 
         ScheduleDTO[] week = new ScheduleDTO[7];
 

@@ -1,40 +1,55 @@
-insert into store (store_id, store_name, phone_no)
-values ('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'San Francisco Castro', '415-123-4532');
+insert into store (store_id, store_name, phone_no) values ('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'San Francisco Castro', '415-123-4532');
+insert into store (store_id, store_name, phone_no) values ('146aa413-f690-44da-92da-68df13af0448', 'San Mateo', '537-113-4323');
+insert into store (store_id, store_name, phone_no) values ('79a095ab-23b2-45b5-8110-8ec6bbf7e9fa', 'Oakland', '554-394-2987');
+insert into store (store_id, store_name, phone_no) values ('dd9b5fc3-cb17-4868-aa59-57e62b5b4a19', 'Sv. Anton', '529-244-2648');
+insert into store (store_id, store_name, phone_no) values ('515024d3-73ee-4e00-9232-22d767aff891', 'Wanbu', '956-261-1531');
+insert into store (store_id, store_name, phone_no) values ('184a26c4-e000-4292-a090-a1a1bd2bc480', 'Tayginka', '818-788-0717');
+insert into store (store_id, store_name, phone_no) values ('31526e12-bed4-44c8-b728-bc77b51cb4d6', 'Andovoranto', '642-987-9037');
+insert into store (store_id, store_name, phone_no) values ('852890ba-1820-4ed8-8b61-7a3fe914dda2', 'Busia', '849-998-2319');
+insert into store (store_id, store_name, phone_no) values ('99c3561d-9ce9-465e-a4bc-8bdd57440c38', 'Santa Maria', '844-321-8961');
+insert into store (store_id, store_name, phone_no) values ('96492b50-56de-4a47-b696-57add4f637f8', 'Binkolo', '555-434-8086');
+insert into store (store_id, store_name, phone_no) values ('23d515d4-3a88-4bb5-bad3-76f822509459', 'Huangze', '619-777-1950');
+insert into store (store_id, store_name, phone_no) values ('baf6262e-3b21-4702-802d-16cfa623ca5c', 'Setun’', '787-461-3945');
+insert into store (store_id, store_name, phone_no) values ('b12f41ee-8a14-4cbf-9606-2374df542943', 'Coulommiers', '469-728-0351');
+insert into store (store_id, store_name, phone_no) values ('df9c309c-10a8-4e9d-88cd-e3315f47b1f0', 'Kōchi-shi', '823-857-4308');
+insert into store (store_id, store_name, phone_no) values ('eefd102c-cbca-422f-84ec-9b0056f559c6', 'Hekou', '845-850-2416');
+insert into store (store_id, store_name, phone_no) values ('856e90d2-988b-4de7-98d5-2d3e0966c545', 'Waihi Beach', '185-421-6710');
+insert into store (store_id, store_name, phone_no) values ('6c4cc15e-c176-4212-9a79-d9792cac084b', 'Fontanka', '423-585-2357');
+insert into store (store_id, store_name, phone_no) values ('690aa40c-d092-4c51-9434-d917ae7662f3', 'Shixi', '815-291-8903');
+insert into store (store_id, store_name, phone_no) values ('bc96663e-a74c-4dc2-a971-859da264ecbe', 'Bijeli', '637-398-9307');
+insert into store (store_id, store_name, phone_no) values ('68ed31bb-09dd-4c2b-81ab-7f79ed29a684', 'Nieuwegein', '938-679-1862');
+insert into store (store_id, store_name, phone_no) values ('861f78f5-2e09-48e4-aa2c-49c999ab777d', 'Hong Kong', '956-218-5183');
+insert into store (store_id, store_name, phone_no) values ('61e0ccb0-8be1-47a4-8dc0-e694c8fc9f4f', 'La Estrella', '967-509-6172');
+insert into store (store_id, store_name, phone_no) values ('ec87db5a-fe20-4b52-8660-58354de86c29', 'Miranda', '323-895-6717');
 
-insert into store (store_id, store_name, phone_no)
-values ('146aa413-f690-44da-92da-68df13af0448', 'San Mateo', '537-113-4323');
+insert into store_hours( hours_id, description) values ('81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'Standard Operating');
 
-insert into store (store_id, store_name, phone_no)
-values ('79a095ab-23b2-45b5-8110-8ec6bbf7e9fa', 'Oakland', '554-394-2987');
+insert into store_schedule(schedule_id, hours_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from) values('4cad3e77-7501-4670-83d5-1ec24c3e0539', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'monday', 6, 0, 22, 0);
+insert into store_schedule(schedule_id, hours_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from) values('fe4b0a56-6833-4cf4-8c7d-eb614bc84cc6', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'tuesday', 6, 0, 22, 0);
+insert into store_schedule(schedule_id, hours_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from) values('1db010dd-8878-4af3-9268-01aa82de3722', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'wednesday', 6, 0, 22, 0);
+insert into store_schedule(schedule_id, hours_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from) values('be0fd75f-b00d-40a9-934f-2f94cf29538d', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'thursday', 6, 0, 22, 0);
+insert into store_schedule(schedule_id, hours_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from) values('cfa265dd-9c28-45c3-8c04-f7e9cc17d554', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb', 'friday', 6, 0, 22, 0);
 
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'monday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'tuesday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'wednesday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'thursday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('6580a3c8-ee19-4244-a844-810a7ec5fe14', 'friday', 6, 0, 22, 0);
-
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('146aa413-f690-44da-92da-68df13af0448', 'monday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('146aa413-f690-44da-92da-68df13af0448', 'tuesday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('146aa413-f690-44da-92da-68df13af0448', 'wednesday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('146aa413-f690-44da-92da-68df13af0448', 'thursday', 6, 0, 22, 0);
-
-insert into store_schedule(store_id, day_of_week, hour_open_from, minute_open_from, hour_closed_from, minute_closed_from)
-values('146aa413-f690-44da-92da-68df13af0448', 'friday', 6, 0, 22, 0);
+insert into store_hours_mapping (store_id, hours_id) values ('6580a3c8-ee19-4244-a844-810a7ec5fe14', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('146aa413-f690-44da-92da-68df13af0448', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('79a095ab-23b2-45b5-8110-8ec6bbf7e9fa', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('dd9b5fc3-cb17-4868-aa59-57e62b5b4a19', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('515024d3-73ee-4e00-9232-22d767aff891', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('184a26c4-e000-4292-a090-a1a1bd2bc480', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('31526e12-bed4-44c8-b728-bc77b51cb4d6', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('852890ba-1820-4ed8-8b61-7a3fe914dda2', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('99c3561d-9ce9-465e-a4bc-8bdd57440c38', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('96492b50-56de-4a47-b696-57add4f637f8', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('23d515d4-3a88-4bb5-bad3-76f822509459', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('baf6262e-3b21-4702-802d-16cfa623ca5c', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('b12f41ee-8a14-4cbf-9606-2374df542943', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('df9c309c-10a8-4e9d-88cd-e3315f47b1f0', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('eefd102c-cbca-422f-84ec-9b0056f559c6', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('856e90d2-988b-4de7-98d5-2d3e0966c545', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('6c4cc15e-c176-4212-9a79-d9792cac084b', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('690aa40c-d092-4c51-9434-d917ae7662f3', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('bc96663e-a74c-4dc2-a971-859da264ecbe', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('68ed31bb-09dd-4c2b-81ab-7f79ed29a684', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('861f78f5-2e09-48e4-aa2c-49c999ab777d', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('61e0ccb0-8be1-47a4-8dc0-e694c8fc9f4f', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');
+insert into store_hours_mapping (store_id, hours_id) values ('ec87db5a-fe20-4b52-8660-58354de86c29', '81cd778f-27c2-4fdd-9d79-8c9e3ff582eb');

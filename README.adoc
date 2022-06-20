@@ -8,3 +8,17 @@ Core API for determining core store information. This is a basic microservice th
 
 you can utilise the Location and Calendar APIs to get more information around the stores that are persisted here.
 
+== Configuring Metrics
+
+There is are a couple of default Grafana dashboards that are readily available:
+
+* https://grafana.com/grafana/dashboards/6083[Spring Boot Hikari / JDBC Dashboard 6083]
+* https://grafana.com/grafana/dashboards/4701[JVM Micrometer 4701]
+
+The JDBC Dashboard will need some updates:
+
+. Firstly the JDBC Active connections
+.. Update the query to: `hikaricp_connections_active{application=~"$application", region=~"$region", instance=~"$instance", pool=~"$hikaricp_pool_name"}`
+... This will ensure you get the active connections from the connection pool. You may want to configure multiple counters based on the number of connection pools.
+.. The Max and Min connections can also be updated to: `hikaricp_connections_min{application="$application", region=~"$region", instance=~"$instance", pool=~"$hikaricp_pool_name"}` to ensure you are tracking the pool.
+
