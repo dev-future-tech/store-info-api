@@ -2,9 +2,10 @@ package com.example.storecoreinfoapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class StoreDTO {
+public class StoreDTO implements Serializable {
 
     @JsonProperty("store_id")
     private UUID storeId;
