@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/store/v1")
+@RequestMapping(path="/store", headers = "x-api-version=v1")
 public class StoreController {
 
     private final Logger log = LoggerFactory.getLogger(StoreController.class);
@@ -26,7 +26,6 @@ public class StoreController {
     @GetMapping()
     public ResponseEntity<List<StoreDTO>> getStores(@RequestParam(value = "size", defaultValue = "10") int size,
                                                     @RequestParam(value = "page", defaultValue = "0") int page) {
-//        List<StoreDTO> results = this.service.getStores(size, page);
         List<StoreDTO> results = this.cacheService.getStores(size, page);
 
         if (results == null) {
