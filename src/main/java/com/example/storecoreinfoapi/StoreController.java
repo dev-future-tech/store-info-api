@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path="/store", headers = "x-api-version=v1")
+@RequestMapping(path="/store")
 public class StoreController {
 
     private final Logger log = LoggerFactory.getLogger(StoreController.class);
@@ -23,7 +23,7 @@ public class StoreController {
     @Resource
     CacheService cacheService;
 
-    @GetMapping()
+    @GetMapping(headers = "x-api-version=v1")
     public ResponseEntity<List<StoreDTO>> getStores(@RequestParam(value = "size", defaultValue = "10") int size,
                                                     @RequestParam(value = "page", defaultValue = "0") int page) {
         List<StoreDTO> results = this.cacheService.getStores(size, page);
@@ -35,7 +35,7 @@ public class StoreController {
         return ResponseEntity.ok(results);
     }
 
-    @GetMapping("/{store_id}")
+    @GetMapping(value = "/{store_id}", headers = "x-api-version=v1")
     public ResponseEntity<StoreDTO> findByStoreId(@PathVariable("store_id") String storeId) {
         log.debug("Finding store with id {}", storeId);
 
@@ -48,7 +48,7 @@ public class StoreController {
         }
     }
 
-    @GetMapping("/{store_id}/schedule")
+    @GetMapping(value = "/{store_id}/schedule", headers = "x-api-version=v1")
     public ResponseEntity<List<ScheduleDTO>> getStoreSchedules(@PathVariable("store_id") String storeId) {
         log.debug("Finding store schedules with id {}", storeId);
         List<ScheduleDTO> results = this.service.getStoreSchedules(UUID.fromString(storeId));
@@ -56,7 +56,7 @@ public class StoreController {
         return ResponseEntity.ok(results);
     }
 
-    @GetMapping("/cache")
+    @GetMapping(value = "/cache", headers = "x-api-version=v1")
     public ResponseEntity<Void> testCachedValue() {
         log.info("Getting value!");
         String val1 = this.cacheService.cacheThis();
