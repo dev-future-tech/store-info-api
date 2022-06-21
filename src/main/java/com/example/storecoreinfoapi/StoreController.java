@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/store/v1")
+@RequestMapping(path="/store", headers = "x-api-version=v1")
 public class StoreController {
 
     private final Logger log = LoggerFactory.getLogger(StoreController.class);
@@ -20,10 +20,18 @@ public class StoreController {
     @Resource
     StoreService service;
 
+    @Resource
+    CacheService cacheService;
+
     @GetMapping()
     public ResponseEntity<List<StoreDTO>> getStores(@RequestParam(value = "size", defaultValue = "10") int size,
                                                     @RequestParam(value = "page", defaultValue = "0") int page) {
-        List<StoreDTO> results = this.service.getStores(size, page);
+        List<StoreDTO> results = this.cacheService.getStores(size, page);
+
+        if (results == null) {
+            log.info("Cache not populated, populating cache!");
+            results = this.cacheService.populateStoreCache(size, page);
+        }
         return ResponseEntity.ok(results);
     }
 
@@ -46,5 +54,19 @@ public class StoreController {
         List<ScheduleDTO> results = this.service.getStoreSchedules(UUID.fromString(storeId));
 
         return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/cache")
+    public ResponseEntity<Void> testCachedValue() {
+        log.info("Getting value!");
+        String val1 = this.cacheService.cacheThis();
+
+        log.info("Value is: {}", val1);
+
+        String val2 = this.cacheService.cacheThis();
+
+        log.info("Second attempt is: {}", val2);
+
+        return ResponseEntity.ok().build();
     }
 }
