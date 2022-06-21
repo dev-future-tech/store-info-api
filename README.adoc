@@ -2,6 +2,8 @@
 :author: Anthony Ikeda <anthony.ikeda@gmail.com>
 :version-label: 1.0.0
 
+:toc:
+
 == Overview
 
 Core API for determining core store information. This is a basic microservice that holds the keys for the stores.
@@ -70,3 +72,13 @@ Transfer-Encoding: chunked
 ]
 
 ----
+
+
+== Building the App
+
+2 environment setups are required:
+
+* Valid docker env for TestContainers
+* `SPRING_PROFILES_ACTIVE=test` also needs to be set to use the test profile.
+
+
