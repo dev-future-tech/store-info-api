@@ -22,3 +22,51 @@ The JDBC Dashboard will need some updates:
 ... This will ensure you get the active connections from the connection pool. You may want to configure multiple counters based on the number of connection pools.
 .. The Max and Min connections can also be updated to: `hikaricp_connections_min{application="$application", region=~"$region", instance=~"$instance", pool=~"$hikaricp_pool_name"}` to ensure you are tracking the pool.
 
+
+== API Versioning
+
+The versions of the APIs are set using the headers. By setting the `x-api-version` header you will be routed to the correct version of the API.
+
+Without it you will get a `404 NOT FOUND`.
+
+For example:
+
+[source,bash]
+----
+$ http --print=HhBb :8020/store size==3 x-api-version:v1
+GET /store?size=3 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: localhost:8020
+User-Agent: HTTPie/3.2.1
+x-api-version: v1
+
+
+
+HTTP/1.1 200
+Connection: keep-alive
+Content-Type: application/json
+Date: Tue, 21 Jun 2022 16:51:58 GMT
+Keep-Alive: timeout=60
+Transfer-Encoding: chunked
+
+[
+    {
+        "name": "San Francisco Castro",
+        "phone_no": "415-123-4532",
+        "store_id": "6580a3c8-ee19-4244-a844-810a7ec5fe14"
+    },
+    {
+        "name": "San Mateo",
+        "phone_no": "537-113-4323",
+        "store_id": "146aa413-f690-44da-92da-68df13af0448"
+    },
+    {
+        "name": "Oakland",
+        "phone_no": "554-394-2987",
+        "store_id": "79a095ab-23b2-45b5-8110-8ec6bbf7e9fa"
+    }
+]
+
+----
