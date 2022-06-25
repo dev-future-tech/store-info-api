@@ -16,6 +16,8 @@ public class StoreDTO implements Serializable {
     @JsonProperty("phone_no")
     private String phoneNo;
 
+    private StoreAddressDTO address;
+
     public UUID getStoreId() {
         return storeId;
     }
@@ -38,5 +40,13 @@ public class StoreDTO implements Serializable {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    public StoreAddressDTO getAddress() {
+        return address;
+    }
+
+    public void setAddress(StoreAddressDTO address) {
+        this.address = address;
     }
 }

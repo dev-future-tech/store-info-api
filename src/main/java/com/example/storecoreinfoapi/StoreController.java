@@ -56,17 +56,4 @@ public class StoreController {
         return ResponseEntity.ok(results);
     }
 
-    @GetMapping(value = "/cache", headers = "x-api-version=v1")
-    public ResponseEntity<Void> testCachedValue() {
-        log.info("Getting value!");
-        String val1 = this.cacheService.cacheThis();
-
-        log.info("Value is: {}", val1);
-
-        String val2 = this.cacheService.cacheThis();
-
-        log.info("Second attempt is: {}", val2);
-
-        return ResponseEntity.ok().build();
-    }
 }

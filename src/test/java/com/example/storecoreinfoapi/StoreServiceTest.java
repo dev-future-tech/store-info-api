@@ -1,6 +1,7 @@
 package com.example.storecoreinfoapi;
 
 import com.example.storecoreinfoapi.dto.ScheduleDTO;
+import com.example.storecoreinfoapi.dto.StoreAddressDTO;
 import com.example.storecoreinfoapi.dto.StoreDTO;
 
 import org.junit.jupiter.api.Test;
@@ -31,5 +32,19 @@ public class StoreServiceTest {
 
         assertThat(store.getName()).isEqualTo("Huangze");
         assertThat(store.getStoreId()).isEqualTo(storeId);
+    }
+
+    @Test
+    public void testGetStoreAddress() {
+        UUID storeId = UUID.fromString("23d515d4-3a88-4bb5-bad3-76f822509459");
+
+        StoreAddressDTO address = this.service.getStoreAddress(storeId);
+
+        assertThat(address)
+                .isNotNull()
+                .hasFieldOrPropertyWithValue("addressId", UUID.fromString("053d69f2-f38e-498a-94b2-09cbbb8676e3"))
+                .hasFieldOrPropertyWithValue("street1", "47283 Killdeer Pass")
+                .hasFieldOrPropertyWithValue("postalCode", "33411");
+
     }
 }

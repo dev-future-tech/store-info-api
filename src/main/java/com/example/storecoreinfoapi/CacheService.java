@@ -17,12 +17,6 @@ public class CacheService {
     @Resource
     StoreService storeService;
 
-    @Cacheable(cacheNames = "myCache")
-    public String cacheThis() {
-        log.info("This not coming from cache");
-        return "this is it";
-    }
-
     @Cacheable(cacheNames = "stores", key="'searchCrit_'.concat(#size).concat(#page)")
     public List<StoreDTO> getStores(int size, int page) {
         log.info("Returning null value...");
