@@ -6,7 +6,7 @@ import com.example.storecoreinfoapi.dto.StoreDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.UUID;
 
