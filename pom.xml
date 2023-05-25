@@ -179,7 +179,9 @@
                     </from>
                     <container>
                         <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        <mainClass>com.example.storecoreinfoapi.StoreInfoApplication</mainClass>
                     </container>
+
                 </configuration>
             </plugin>
             <plugin>
