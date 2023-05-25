@@ -33,11 +33,11 @@ jobs:
       - id: artifact-id
         name: Get Artifact Id
         run: |
-          echo "::set-output name=artifactId::$(./mvnw -f pom.xml.tag help:evaluate -Dexpression=project.artifactId -q -DforceStdout)"
+          echo "{artifactId}={$(./mvnw -f pom.xml.tag help:evaluate -Dexpression=project.artifactId -q -DforceStdout)}" >> $GITHUB_OUTPUT
       - id: artifact-version
         name: Get Artifact New Version
         run: |
-          echo "::set-output name=artifactVersion::$(./mvnw -f pom.xml.tag help:evaluate -Dexpression=project.version -q -DforceStdout)"
+          echo "{artifactVersion}={$(./mvnw -f pom.xml.tag help:evaluate -Dexpression=project.version -q -DforceStdout)}" >> $GITHUB_OUTPUT
       - id: cleanup
         name: Reverse release dry run
         run: ./mvnw release:clean
