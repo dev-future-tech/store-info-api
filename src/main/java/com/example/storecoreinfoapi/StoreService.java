@@ -14,7 +14,7 @@ import java.util.UUID;
 public class StoreService {
 
     @Resource
-    StoreRespository repository;
+    StoreRepository repository;
 
     @Resource
     JdbcTemplate template;

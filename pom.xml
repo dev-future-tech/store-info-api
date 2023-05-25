@@ -13,7 +13,7 @@
     <name>Store Core Info API</name>
     <description>Basic info on the Stores</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>20</java.version>
         <postgresql.verion>42.5.4</postgresql.verion>
         <project.scm.id>github</project.scm.id>
     </properties>
@@ -39,6 +39,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
@@ -46,20 +52,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.playtika.testcontainers</groupId>
-            <artifactId>embedded-redis</artifactId>
-            <version>2.2.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-            <version>4.0.1</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -122,7 +114,7 @@
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers-bom</artifactId>
-                <version>1.16.3</version>
+                <version>1.18.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -134,26 +126,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.openrewrite.maven</groupId>
-                <artifactId>rewrite-maven-plugin</artifactId>
-                <version>4.46.0</version>
-                <configuration>
-                    <activeRecipes>
-                        <recipe>org.openrewrite.java.migrate.UpgradeToJava20</recipe>
-                        <recipe>org.openrewrite.java.migrate.jakarta.JavaxPersistenceToJakartaPersistence</recipe>
-                        <recipe>org.openrewrite.java.migrate.jakarta.JavaxSecurityToJakartaSecurity</recipe>
-                        <recipe>org.openrewrite.java.migrate.jakarta.ChangeJavaxAnnotationToJakarta</recipe>
-                    </activeRecipes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-migrate-java</artifactId>
-                        <version>1.21.1</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -208,6 +180,15 @@
                     <container>
                         <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
                     </container>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>${java.version}</release>
+                    <source>20</source>
+                    <target>20</target>
                 </configuration>
             </plugin>
         </plugins>

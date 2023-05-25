@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: store-info-api
+  description: |
+    Basic API that stores the location details of stores that are part of a larger ecosystem
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+
+spec:
+  type: application_api
+  owner: anthony.ikeda@gmail.com
+  lifecycle: production
+
