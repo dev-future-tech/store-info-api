@@ -1,0 +1,7 @@
+site_name: Store Info API
+nav:
+  - Home: index.md
+  - Database Setup: database.md
+plugins:
+  - techdocs-core
+

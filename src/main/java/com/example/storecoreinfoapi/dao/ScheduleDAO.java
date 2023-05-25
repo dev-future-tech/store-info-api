@@ -1,6 +1,6 @@
 package com.example.storecoreinfoapi.dao;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -11,8 +11,8 @@ public class ScheduleDAO {
     @Column(name = "schedule_id")
     private UUID scheduleId;
 
-    @OneToOne
-    @JoinColumn(name="store_id")
+    @ManyToOne
+    @JoinTable(name = "store_hours_mapping", joinColumns = {@JoinColumn(name="store_id")})
     StoreDAO store;
     @Column(name="day_of_week")
     private String dayOfWeek;

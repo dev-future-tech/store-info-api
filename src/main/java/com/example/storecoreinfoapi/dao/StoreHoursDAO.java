@@ -1,8 +1,7 @@
 package com.example.storecoreinfoapi.dao;
 
-import com.example.storecoreinfoapi.dto.ScheduleDTO;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.util.Set;
 import java.util.UUID;
 
@@ -11,7 +10,7 @@ import java.util.UUID;
 public class StoreHoursDAO {
 
     @Id
-    @Column(name = "schedule_id")
+    @Column(name = "hours_id")
     private UUID scheduleId;
 
     private UUID storeId;
